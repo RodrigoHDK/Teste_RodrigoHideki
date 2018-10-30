@@ -1,0 +1,40 @@
+﻿@model Biblioteca.Models.Registrar
+
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registrar</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Registro Falhou, campos.");
+    <div>
+        <fieldset>
+
+            <div class="editor-label">@Html.LabelFor(u => u.Email)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Email)
+                @Html.ValidationMessageFor(u => u.Email)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.Senha)</div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.Senha)
+                @Html.ValidationMessageFor(u => u.Senha)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.PrimeiroNome)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.PrimeiroNome)
+                @Html.ValidationMessageFor(u => u.PrimeiroNome)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.UltimoNome)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.UltimoNome)
+                @Html.ValidationMessageFor(u => u.UltimoNome)
+            </div>
+            <br />
+            <input type="submit" value="Registrar" />
+        </fieldset>
+    </div>
+    <br />
+}

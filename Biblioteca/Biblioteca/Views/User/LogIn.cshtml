@@ -1,0 +1,32 @@
+﻿@model Biblioteca.Models.Registrar
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Falha no Login, verifique os detalhes.");
+    <div>
+        <fieldset>
+            <div class="editor-label">@Html.LabelFor(u => u.Email)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Email)
+                @Html.ValidationMessageFor(u => u.Email)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.Senha)</div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.Senha)
+                @Html.ValidationMessageFor(u => u.Senha)
+            </div>
+            <br />
+            <input type="submit" value="Log In" />
+        </fieldset>
+        <br />
+        @Html.ActionLink("Cadastrar Usuário", "Register", "User")
+        
+    </div>
+} <br />
+
